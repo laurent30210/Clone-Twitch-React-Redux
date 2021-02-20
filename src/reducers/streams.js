@@ -1,9 +1,11 @@
 import {
   GET_STREAM_FROM_API_SUCCESS,
+  GET_DATA_FROM_API_ERROR,
 } from 'src/store/actions';
 
 const initialState = {
   liveStreamsList: [],
+  errorText: '',
 };
 
 const reducer = (oldState = initialState, action) => {
@@ -11,7 +13,12 @@ const reducer = (oldState = initialState, action) => {
     case GET_STREAM_FROM_API_SUCCESS:
       return {
         ...oldState,
-        liveStreamList: action.streamsList,
+        liveStreamsList: action.streamsList,
+      };
+    case GET_DATA_FROM_API_ERROR:
+      return {
+        ...oldState,
+        errorText: action.errorText,
       };
     default:
       return { ...oldState };

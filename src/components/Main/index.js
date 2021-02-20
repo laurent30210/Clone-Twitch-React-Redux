@@ -1,7 +1,7 @@
 // == Import npm
 import React from 'react';
 import SectionTopStreamers from 'src/components/Main/SectionTopStreamers';
-import SectionLiveStreamers from 'src/components/Main/SectionLiveStreamers';
+import SectionLiveStreamers from 'src/containers/SectionLiveStreamers';
 
 // == Import
 import './main.scss';
