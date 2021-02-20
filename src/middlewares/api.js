@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 import axios from 'axios';
 
 import {
@@ -22,13 +23,13 @@ const apiTwitch = axios.create({
 const api = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_STREAM_FROM_API:
-      // first 
+      // first
       apiTwitch.get('https://api.twitch.tv/helix/streams')
         .then((response) => {
-          // console.log(response.data);
+        // console.log(response.data);
           const { data } = response.data;
           // here we receive each img's objects without an size witdh, height
-          const newDatas = data.map((item) => {
+          const dataWithNewSize = data.map((item) => {
             // replace {width and height} width an valid size
             const newThumbnailUrl = item.thumbnail_url
               .replace('{width}', '337')
@@ -36,7 +37,56 @@ const api = (store) => (next) => (action) => {
             item.thumbnail_url = newThumbnailUrl;
             return item;
           });
-          store.dispatch(getStreamFromAPISuccess(newDatas));
+          // now it's necessary to retrieve the id for each game and user
+          // prepare query params for the next request
+          let queryParamsGames = '';
+          let queryParamsUsers = '';
+          dataWithNewSize.map((stream) => (queryParamsGames += `id=${stream.game_id}&`));
+          dataWithNewSize.map((stream) => (queryParamsUsers += `id=${stream.user_id}&`));
+          // console.log(gameIds, userIds);
+          // now, we have to do is send the request
+          const urlGames = `https://api.twitch.tv/helix/games?${queryParamsGames}`;
+          const urlUsers = `https://api.twitch.tv/helix/users?${queryParamsUsers}`;
+          // console.log(urlGames, urlUsers);
+
+          let gamesName = '';
+          let usersName = '';
+          apiTwitch.get(urlGames)
+            .then((responseGames) => {
+              // console.log(responseGames.data.data);
+              gamesName += responseGames.data.data;
+              console.log(gamesName);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+          apiTwitch.get(urlUsers)
+            .then((responseUsers) => {
+              // console.log(responseUsers.data.data);
+              usersName += responseUsers.data.data;
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+          console.log('gameName :', gamesName, 'userName :', usersName);
+          const finalArray = dataWithNewSize.map((item) => {
+            item.gameName = '';
+            item.picUser = '';
+            item.login = '';
+            gamesName.forEach((name) => {
+              console.log(name);
+              usersName.forEach((user) => {
+                // console.log(user);
+                if (item.user_id === user.id && item.game_id === name.id) {
+                  item.gameName = name.name;
+                  item.picUser = user.profil_image_url;
+                  item.login = user.login;
+                }
+              });
+            });
+            return item;
+          });
+          store.dispatch(getStreamFromAPISuccess(finalArray));
         })
         .catch((error) => {
           // console.log('error ', error);
@@ -45,9 +95,9 @@ const api = (store) => (next) => (action) => {
             store.dispatch(getDataFromAPIError(`erreur ${status}, message ${statusText}`));
           }
         });
-        apiTwitch.get('https://api.twitch.tv/helix/games/top')
+      apiTwitch.get('https://api.twitch.tv/helix/games/top')
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           const { data } = response.data;
           // here we receive each img's objects without an size witdh, height
           const newDatas = data.map((item) => {

@@ -14,13 +14,15 @@ const Sidebar = ({ liveStreamsList }) => (
       </header>
       <ul className="sidebar__listStream">
         {liveStreamsList && liveStreamsList.map((streamer) => (
-          (streamer.viewer_count > 20000)
-           && (<Streamer
-            key={streamer.id}
-            userName={streamer.user_name}
-            gameName={streamer.game_name}
-            viewers={streamer.viewer_count}
-          />)
+          (streamer.viewer_count > 50000)
+           && (
+           <Streamer
+             key={streamer.id}
+             userName={streamer.user_name}
+             gameName={streamer.game_name}
+             viewers={streamer.viewer_count}
+           />
+           )
         ))}
       </ul>
 

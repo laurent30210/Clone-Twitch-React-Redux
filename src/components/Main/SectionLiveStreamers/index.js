@@ -6,7 +6,7 @@ import './sectionLiveStreamers.scss';
 
 // == Composant
 const SectionLiveStreamers = ({ liveStreamsList }) => (
-  <section className="sectionLiveStreamers">
+  <section className="section sectionLiveStreamers">
     <h2 className="sectionLiveStreamers__title">chaines live qui pourraient vous plaire</h2>
     <ul className="sectionLiveStreamers__list">
       {liveStreamsList && liveStreamsList.map((liveStream) => (
