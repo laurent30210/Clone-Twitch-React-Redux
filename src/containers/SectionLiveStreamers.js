@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import SectionliveStreamers from 'src/components/Main/SectionliveStreamers';
+import SectionliveStreamers from 'src/components/Main/SectionLiveStreamers';
 
 const mapStateToProps = (state) => ({
-  liveStreamsList: state.todosReducer.liveStreamsList,
+  liveStreamsList: state.streamsReducer.liveStreamsList,
 });
 
 export default connect(mapStateToProps)(SectionliveStreamers);
