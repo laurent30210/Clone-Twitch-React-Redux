@@ -7,7 +7,7 @@ import './sectionTopStreamers.scss';
 // == Composant
 const SectionTopStreamers = () => (
   <div className="sectionTopStreamers">
-    TOP
+    slide des vidéos
   </div>
 );
 
