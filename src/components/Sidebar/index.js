@@ -1,11 +1,11 @@
 // == Import npm
 import React from 'react';
-
+import Streamer from './Streamer';
 // == Import
 import './sidebar.scss';
 
 // == Composant
-const Sidebar = () => (
+const Sidebar = ({ liveStreamsList }) => (
   <div className="sidebar">
     <div className="sidebar__containerStreamers">
       <header>
@@ -13,30 +13,15 @@ const Sidebar = () => (
 
       </header>
       <ul className="sidebar__listStream">
-        <li className="sidebar__streamer">
-          <img className="sidebar__streamer__logo" src="https://multigames.advento.ca/wp-content/uploads/2020/04/avatar-370-456322-1.png" alt="logo du streamer" />
-          <section className="sidebar__streamer__infos">
-            <h2 className="sidebar__streamer__infos__name">streamer 1</h2>
-            <h3 className="sidebar__streamer__infos__gamePlayed">daoc</h3>
-          </section>
-          <span className="sidebar__streamer__viewers">2,8 K</span>
-        </li>
-        <li className="sidebar__streamer">
-          <img className="sidebar__streamer__logo" src="https://multigames.advento.ca/wp-content/uploads/2020/04/avatar-370-456322-1.png" alt="logo du streamer" />
-          <section className="sidebar__streamer__infos">
-            <h2 className="sidebar__streamer__infos__name">streamer 2</h2>
-            <h3 className="sidebar__streamer__infos__gamePlayed">daoc</h3>
-          </section>
-          <span className="sidebar__streamer__viewers">2,8 K</span>
-        </li>
-        <li className="sidebar__streamer">
-          <img className="sidebar__streamer__logo" src="https://multigames.advento.ca/wp-content/uploads/2020/04/avatar-370-456322-1.png" alt="logo du streamer" />
-          <section className="sidebar__streamer__infos">
-            <h2 className="sidebar__streamer__infos__name">streamer 3</h2>
-            <h3 className="sidebar__streamer__infos__gamePlayed">daoc</h3>
-          </section>
-          <span className="sidebar__streamer__viewers">2,8 K</span>
-        </li>
+        {liveStreamsList && liveStreamsList.map((streamer) => (
+          (streamer.viewer_count > 20000)
+           && (<Streamer
+            key={streamer.id}
+            userName={streamer.user_name}
+            gameName={streamer.game_name}
+            viewers={streamer.viewer_count}
+          />)
+        ))}
       </ul>
 
     </div>

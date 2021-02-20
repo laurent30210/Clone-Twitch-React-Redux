@@ -1,7 +1,7 @@
 // == Import npm
 import React, { useEffect } from 'react';
 import Header from 'src/components/Header';
-import Sidebar from 'src/components/Sidebar';
+import Sidebar from 'src/containers/Sidebar';
 import Main from 'src/components/Main';
 // == Import
 import './app.scss';

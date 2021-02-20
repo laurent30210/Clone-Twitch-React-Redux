@@ -13,8 +13,8 @@ const SectionLiveStreamers = ({ liveStreamsList }) => (
         <ChannelStream
           key={liveStream.id}
           id={liveStream.id}
-          userName={liveStream.userName}
-          gameName={liveStream.gameName}
+          userName={liveStream.user_name}
+          gameName={liveStream.game_name}
           title={liveStream.title}
           viewer={liveStream.viewer_count}
           language={liveStream.language}
