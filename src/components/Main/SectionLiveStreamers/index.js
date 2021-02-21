@@ -14,7 +14,9 @@ const SectionLiveStreamers = ({ liveStreamsList }) => (
           key={liveStream.id}
           id={liveStream.id}
           userName={liveStream.user_name}
+          loginName={liveStream.login}
           gameName={liveStream.game_name}
+          userPic={liveStream.picUser}
           title={liveStream.title}
           viewer={liveStream.viewer_count}
           language={liveStream.language}

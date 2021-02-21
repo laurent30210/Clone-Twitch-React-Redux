@@ -5,13 +5,13 @@ import './channelStream.scss';
 
 // == Composant
 const ChannelStream = ({
-  id, userName, gameName, title, viewer, language, image,
+  id, userName, gameName, title, viewer, language, image, loginName, userPic,
 }) => (
   <li className="channelStream" id={id}>
     <header className="channelStream__header">
       <img
         src={image}
-        alt="stream in progress"
+        alt={`stream ${gameName} in progress`}
         className="channelStream__img"
       />
       <span className="channelStream__viewers">{`${viewer} spectateurs`}</span>
@@ -19,8 +19,8 @@ const ChannelStream = ({
     <section className="channelStream__containerUser">
       <img
         className="channelStream__containerUser__logoUser"
-        src="https://multigames.advento.ca/wp-content/uploads/2020/04/avatar-370-456322-1.png"
-        alt="logo user"
+        src={userPic}
+        alt={`logo ${loginName}`}
       />
       <div className="channelStream__containerUser__content">
         <h2 className="channelStream__containerUser__content__title">{title}</h2>

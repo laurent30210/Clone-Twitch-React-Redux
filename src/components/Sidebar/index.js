@@ -20,7 +20,9 @@ const Sidebar = ({ liveStreamsList }) => (
              key={streamer.id}
              userName={streamer.user_name}
              gameName={streamer.game_name}
+             loginName={streamer.login}
              viewers={streamer.viewer_count}
+             userPic={streamer.picUser}
            />
            )
         ))}

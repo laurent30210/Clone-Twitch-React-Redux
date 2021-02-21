@@ -37,56 +37,43 @@ const api = (store) => (next) => (action) => {
             item.thumbnail_url = newThumbnailUrl;
             return item;
           });
-          // now it's necessary to retrieve the id for each game and user
+          // now it's necessary to retrieve the id for each user
           // prepare query params for the next request
-          let queryParamsGames = '';
           let queryParamsUsers = '';
-          dataWithNewSize.map((stream) => (queryParamsGames += `id=${stream.game_id}&`));
           dataWithNewSize.map((stream) => (queryParamsUsers += `id=${stream.user_id}&`));
-          // console.log(gameIds, userIds);
+          // console.log( userIds);
           // now, we have to do is send the request
-          const urlGames = `https://api.twitch.tv/helix/games?${queryParamsGames}`;
           const urlUsers = `https://api.twitch.tv/helix/users?${queryParamsUsers}`;
-          // console.log(urlGames, urlUsers);
+          // console.log(urlUsers);
 
-          let gamesName = '';
-          let usersName = '';
-          apiTwitch.get(urlGames)
-            .then((responseGames) => {
-              // console.log(responseGames.data.data);
-              gamesName += responseGames.data.data;
-              console.log(gamesName);
-            })
-            .catch((error) => {
-              console.error(error);
-            });
+          const usersName = [];
+          let finalArray = [];
           apiTwitch.get(urlUsers)
             .then((responseUsers) => {
               // console.log(responseUsers.data.data);
-              usersName += responseUsers.data.data;
+              usersName.push(responseUsers.data.data);
+
+              finalArray = dataWithNewSize.map((item) => {
+                item.picUser = '';
+                item.login = '';
+                console.log(usersName);
+                usersName[0].forEach((user) => {
+                  console.log(user);
+                  console.log(user.id, item.user_id);
+                  if (item.user_id === user.id) {
+                    console.log('je suis dedans');
+                    item.picUser = user.profile_image_url;
+                    item.login = user.login;
+                  }
+                });
+                return item;
+              });
+              store.dispatch(getStreamFromAPISuccess(finalArray));
             })
             .catch((error) => {
               console.error(error);
             });
-          console.log('gameName :', gamesName, 'userName :', usersName);
-          const finalArray = dataWithNewSize.map((item) => {
-            item.gameName = '';
-            item.picUser = '';
-            item.login = '';
-            gamesName.forEach((name) => {
-              console.log(name);
-              usersName.forEach((user) => {
-                // console.log(user);
-                if (item.user_id === user.id && item.game_id === name.id) {
-                  item.gameName = name.name;
-                  item.picUser = user.profil_image_url;
-                  item.login = user.login;
-                }
-              });
-            });
-            return item;
-          });
-          store.dispatch(getStreamFromAPISuccess(finalArray));
+          // console.log('userName :', usersName);
         })
         .catch((error) => {
           // console.log('error ', error);
