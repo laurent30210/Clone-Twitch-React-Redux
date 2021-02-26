@@ -21,6 +21,7 @@ const SectionLiveStreamers = ({ liveStreamsList }) => (
           viewer={liveStream.viewer_count}
           language={liveStream.language}
           image={liveStream.thumbnail_url}
+          type={liveStream.type}
 
         />
       ))}

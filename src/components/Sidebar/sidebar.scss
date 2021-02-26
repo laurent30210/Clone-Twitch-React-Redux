@@ -40,7 +40,10 @@
       border-radius: 50%;
     }
     &__infos {
+      width: 130px;
       margin: 0 .5rem;
+      overflow: hidden;
+
       &__name::first-letter, &__gamePlayed::first-letter {
         text-transform: uppercase;
       }
@@ -50,6 +53,10 @@
       }
       &__gamePlayed {
         color: rgb(104, 104, 104);
+        font-size: .8rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
       }
     }
     &__viewers {

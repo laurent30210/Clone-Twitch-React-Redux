@@ -56,12 +56,9 @@ const api = (store) => (next) => (action) => {
               finalArray = dataWithNewSize.map((item) => {
                 item.picUser = '';
                 item.login = '';
-                console.log(usersName);
                 usersName[0].forEach((user) => {
-                  console.log(user);
-                  console.log(user.id, item.user_id);
+                  // console.log(user);
                   if (item.user_id === user.id) {
-                    console.log('je suis dedans');
                     item.picUser = user.profile_image_url;
                     item.login = user.login;
                   }
@@ -84,7 +81,7 @@ const api = (store) => (next) => (action) => {
         });
       apiTwitch.get('https://api.twitch.tv/helix/games/top')
         .then((response) => {
-          // console.log(response.data);
+          console.log(response);
           const { data } = response.data;
           // here we receive each img's objects without an size witdh, height
           const newDatas = data.map((item) => {
@@ -95,6 +92,7 @@ const api = (store) => (next) => (action) => {
             item.box_art_url = newBoxArtUrl;
             return item;
           });
+
           store.dispatch(getCategoryFromAPISuccess(newDatas));
         })
         .catch((error) => {

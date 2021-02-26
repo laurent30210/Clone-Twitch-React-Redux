@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // == Import
 import logoTwitch from '../../assets/images/icons/iconTwitch.svg';
@@ -10,22 +11,23 @@ const Header = () => (
   <header className="header">
     <nav className="header__nav">
       <ul className="header__nav__items header__nav__items__left">
-        <li className="header__nav__item">
+        <Link className="header__nav__item" to="/">
           <img
             src={logoTwitch}
             alt="logo de twitch"
             className="header__nav__logoTwitch"
           />
-        </li>
-        <li className="header__nav__item header__nav__item__txt">
+        </Link>
+        <Link className="header__nav__item header__nav__item__txt" to="/">
           Suivis
-        </li>
-        <li className="header__nav__item header__nav__item__txt">
+        </Link>
+        <Link className="header__nav__item header__nav__item__txt" to="/">
+
           Parcourir
-        </li>
-        <li className="header__nav__item header__nav__item__icon">
+        </Link>
+        <Link className="header__nav__item header__nav__item__icon" to="/">
           <i className="fas fa-ellipsis-h" />
-        </li>
+        </Link>
       </ul>
       <ul className="header__nav__items header__nav__items__middle">
         <li className="header__nav__item">
@@ -48,18 +50,18 @@ const Header = () => (
         </li>
       </ul>
       <ul className="header__nav__items header__nav__items__right">
-        <li className="header__nav__item header__nav__item__icon">
+        <Link className="header__nav__item header__nav__item__icon" to="/">
           <i className="fas fa-crown" />
-        </li>
-        <li className="header__nav__item header__nav__item__icon">
+        </Link>
+        <Link className="header__nav__item header__nav__item__icon" to="/">
           <i className="fas fa-inbox" />
-        </li>
-        <li className="header__nav__item header__nav__item__icon">
+        </Link>
+        <Link className="header__nav__item header__nav__item__icon" to="/">
           <i className="far fa-comment-alt" />
-        </li>
-        <li className="header__nav__item header__nav__item__icon header__nav__item__icon__user">
+        </Link>
+        <Link className="header__nav__item header__nav__item__icon header__nav__item__icon__user" to="/">
           <i className="far fa-user" />
-        </li>
+        </Link>
       </ul>
     </nav>
     <div className="header__responsiveMenuIcon">
