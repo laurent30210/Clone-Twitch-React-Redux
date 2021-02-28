@@ -5,6 +5,7 @@ import {
   GET_STREAM_FROM_API,
   getStreamFromAPISuccess,
   getDataFromAPIError,
+  GET_CATEGORY_FROM_API,
   getCategoryFromAPISuccess,
 } from 'src/store/actions';
 
@@ -79,6 +80,8 @@ const api = (store) => (next) => (action) => {
             store.dispatch(getDataFromAPIError(`erreur ${status}, message ${statusText}`));
           }
         });
+      break;
+    case GET_CATEGORY_FROM_API:
       apiTwitch.get('https://api.twitch.tv/helix/games/top')
         .then((response) => {
           console.log(response);

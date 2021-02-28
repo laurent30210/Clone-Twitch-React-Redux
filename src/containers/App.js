@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import App from 'src/components/App';
 
-import { getStreamFromAPI } from 'src/store/actions';
+import { getStreamFromAPI, getCategoryFromAPI } from 'src/store/actions';
 
 const mapDispatchToProps = (dispatch) => ({
   loadStreams: () => {
-    console.log('titie');
     dispatch(getStreamFromAPI());
+    dispatch(getCategoryFromAPI());
   },
 });
 export default connect(null, mapDispatchToProps)(App);

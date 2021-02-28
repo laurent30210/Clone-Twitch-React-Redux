@@ -1,6 +1,8 @@
 // == Import npm
 import React from 'react';
+import { changeTypeNumberOfViewers } from 'src/utils';
 import Streamer from './Streamer';
+
 // == Import
 import './sidebar.scss';
 
@@ -14,14 +16,14 @@ const Sidebar = ({ liveStreamsList }) => (
       </header>
       <ul className="sidebar__listStream">
         {liveStreamsList && liveStreamsList.map((streamer) => (
-          (streamer.viewer_count > 50000)
+          (streamer.viewer_count > 20000)
            && (
            <Streamer
              key={streamer.id}
              userName={streamer.user_name}
              gameName={streamer.game_name}
              loginName={streamer.login}
-             viewers={streamer.viewer_count}
+             viewers={changeTypeNumberOfViewers(streamer.viewer_count)}
              userPic={streamer.picUser}
            />
            )

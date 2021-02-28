@@ -15,11 +15,13 @@ export function changeTypeTextLanguage(language) {
       return 'Japonnais';
     case 'ch':
       return 'Chinois';
+    case 'ko':
+      return 'Coréen';
     default:
       return language;
   }
 }
 
 export function changeTypeNumberOfViewers(number) {
-  return number.toLocaleString();
+  return Math.abs(number) > 999 ? `${Math.sign(number) * ((Math.abs(number) / 1000).toFixed(1))}k` : Math.sign(number) * Math.abs(number);
 }
