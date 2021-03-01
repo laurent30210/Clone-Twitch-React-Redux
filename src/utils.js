@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 // eslint-disable-next-line import/prefer-default-export
 
 // function that is used to modify languages coming from the api
@@ -29,4 +30,15 @@ export function changeTypeTextLanguage(language) {
 // fucntion for transform the visual of the number of viewers
 export function changeTypeNumberOfViewers(number) {
   return Math.abs(number) > 999 ? `${Math.sign(number) * ((Math.abs(number) / 1000).toFixed(1))}k` : number;
+}
+
+export function findNameForThisChannel(stream) {
+  let gameName = '';
+  gameName.toUpperCase();
+  if (stream == 'Just Chatting') {
+    gameName = 'Discussion';
+    return gameName;
+  }
+  gameName = stream;
+  return gameName;
 }

@@ -32,7 +32,10 @@ const reducer = (oldState = initialState, action) => {
     case GET_CHANNEL_FROM_API_SUCCESS:
       return {
         ...oldState,
-        [action.gameName]: action.channel,
+        channelStream: [
+          ...oldState.channelStream,
+          { [action.gameName]: action.channel },
+        ],
       };
     default:
       return { ...oldState };

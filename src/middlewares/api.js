@@ -115,7 +115,7 @@ const api = (store) => (next) => (action) => {
       const urlChannel = `https://api.twitch.tv/kraken/streams?game=${action.channelID}`;
       apiTwitch.get(urlChannel)
         .then((response) => {
-          console.log(action.channelID, response);
+          // console.log(action.channelID, response);
           const { streams } = response.data;
           store.dispatch(getChannelFromAPISuccess(action.channelID, streams));
         })

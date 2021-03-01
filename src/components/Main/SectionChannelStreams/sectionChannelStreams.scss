@@ -1,18 +1,16 @@
 .section {
   margin: 2rem 0;
 }
-.sectionCatStreamers {
+.sectionChannelContainer {
   width: 100%;
+}
+.sectionChannelStreams {
   &__title {
     font-weight: bold;
     font-size: 1.2rem;
-    padding-left: 7px;
-    &::first-letter {
-      text-transform: capitalize;
-    }
+    padding-left: 7px;    
     &__firstWord {
-      color: #6441a4; 
-      
+      color: #6441a4;       
     }
   }
   &__list {

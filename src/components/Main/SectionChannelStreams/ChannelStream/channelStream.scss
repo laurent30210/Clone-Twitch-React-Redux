@@ -1,0 +1,107 @@
+.channelStream {
+  width: 337px;
+  margin: .5rem;
+  &__header {
+    position: relative;
+  }
+  &__viewers {
+    position: absolute;
+    bottom: 3%;
+    left: 1%;
+    background-color: rgb(54, 54, 54);
+    color: #fff;
+    font-size: .9rem;
+    padding: 3px;
+  }
+  &__live {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    background-color: rgb(228, 0, 0);
+    color: #fff;
+    font-size: .8rem;
+    text-transform: uppercase;
+    padding: .2rem;
+    border-radius: 5px;
+  }
+  &__containerUser {
+    display: flex;
+    &__logoUser {
+      height: 40px; width: 40px;
+      border-radius: 50%;
+    }
+    &__content {
+      display: flex;
+      flex-direction: column;
+      padding: .4rem;
+      white-space: nowrap;
+      overflow: hidden;
+      &__title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      &__userName, &__gamePlayed {
+        color: rgb(78, 78, 78);
+        font-size: .9rem;
+      }
+    }
+  }
+  &__details {
+    padding: .3rem 2.5rem;
+    &__icon {
+      padding: .2rem .3rem;
+      margin: 0 .2rem;
+      background-color: rgba(197, 197, 197, 0.6);
+      color: rgba(0, 0, 0, 0.8);
+      font-size: .8rem;
+      border-radius: 30px;
+
+    }
+  }
+  &__img, &__viewers, &__live {
+    transition: all .2s ease-in;    
+  }
+  &__img {
+    &:hover {
+    transform: translate(.4rem, -.4rem);   
+      &.channelStream__live {
+        top: 4%;
+        left: 4%;
+      }
+      &.channelStream__viewers {
+        bottom: 4%;
+        left: 2%;
+      }
+    }
+  }
+}
+
+.cornerLeft {
+  position: absolute;
+  width: 100%;
+  height: 98%;
+  background-color: purple;
+  z-index: -1;
+}
+.cornerRight {
+  position: absolute;
+  border-left: .4rem solid transparent;
+  border-right: .4rem solid transparent;
+  border-top: .4rem solid purple;
+  bottom: 4px;
+  right: -7px;
+  z-index: -1;
+
+}
+.cornerTop {
+position: absolute;
+top: -7px;
+left: 1px;
+width: 0px;
+height: 0px;
+border-top: 0.4rem solid transparent;
+border-bottom: 0.4rem solid transparent;
+border-right: 0.4rem solid purple;
+z-index: -1;
+
+}
