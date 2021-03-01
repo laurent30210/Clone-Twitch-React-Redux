@@ -48,7 +48,6 @@ const ChannelStream = ({
     </section>
     <section className="channelStream__details">
       <span className="channelStream__details__icon channelStream__details__icon__language">{changeTypeTextLanguage(language)}</span>
-      <span className="channelStream__details__icon channelStream__details__icon__techno" />
     </section>
   </li>
 );

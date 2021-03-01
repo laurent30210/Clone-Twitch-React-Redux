@@ -37,7 +37,7 @@ const api = (store) => (next) => (action) => {
           const dataWithNewSize = data.map((item) => {
             // replace {width and height} width an valid size
             const newThumbnailUrl = item.thumbnail_url
-              .replace('{width}', '337')
+              .replace('{width}', '320')
               .replace('{height}', '190');
             item.thumbnail_url = newThumbnailUrl;
             return item;
