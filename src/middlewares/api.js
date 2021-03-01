@@ -7,6 +7,9 @@ import {
   getDataFromAPIError,
   GET_CATEGORY_FROM_API,
   getCategoryFromAPISuccess,
+  getChannelFromAPI,
+  GET_CHANNEL_FROM_API,
+  getChannelFromAPISuccess,
 } from 'src/store/actions';
 
 // Client_ID = 3672qpowsak0jc3gz1w7g3ltttf7o8
@@ -16,6 +19,7 @@ import {
 
 const apiTwitch = axios.create({
   headers: {
+    Accept: 'application/vnd.twitchtv.v5+json',
     'Client-ID': '3672qpowsak0jc3gz1w7g3ltttf7o8',
     Authorization: 'Bearer 4114x35j0lpi82l88oxmj4n0tw4cok',
   },
@@ -84,7 +88,6 @@ const api = (store) => (next) => (action) => {
     case GET_CATEGORY_FROM_API:
       apiTwitch.get('https://api.twitch.tv/helix/games/top')
         .then((response) => {
-          console.log(response);
           const { data } = response.data;
           // here we receive each img's objects without an size witdh, height
           const newDatas = data.map((item) => {
@@ -93,6 +96,8 @@ const api = (store) => (next) => (action) => {
               .replace('{width}', '153')
               .replace('{height}', '204');
             item.box_art_url = newBoxArtUrl;
+
+            store.dispatch(getChannelFromAPI(item.name));
             return item;
           });
 
@@ -105,6 +110,22 @@ const api = (store) => (next) => (action) => {
             store.dispatch(getDataFromAPIError(`erreur ${status}, message ${statusText}`));
           }
         });
+      break;
+    case GET_CHANNEL_FROM_API: {
+      const urlChannel = `https://api.twitch.tv/kraken/streams?game=${action.channelID}`;
+      apiTwitch.get(urlChannel)
+        .then((response) => {
+          console.log(action.channelID, response);
+          const { streams } = response.data;
+          store.dispatch(getChannelFromAPISuccess(action.channelID, streams));
+        })
+        .catch((error) => {
+          if (error.response.status) {
+            const { status, statusText } = error.response;
+            store.dispatch(getDataFromAPIError(`erreur ${status}, message ${statusText}`));
+          }
+        });
+    }
       break;
     default:
       next(action);

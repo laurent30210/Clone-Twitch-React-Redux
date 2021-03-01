@@ -14,6 +14,9 @@ const ChannelStream = ({
   return (
     <li className="channelStream" id={id}>
       <header className="channelStream__header">
+        <div className="cornerLeft" />
+        <div className="cornerTop" />
+        <div className="cornerRight" />
         <Link
           to={{
             pathname: `/live/${loginName}`,

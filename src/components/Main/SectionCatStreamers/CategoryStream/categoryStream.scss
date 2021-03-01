@@ -47,5 +47,10 @@
 
     }
   }
-
+  &__img {
+    transition: all .2s ease-in;    
+    &:hover {
+    transform: translate(.3rem, -.3rem);   
+  }  
+}
 }

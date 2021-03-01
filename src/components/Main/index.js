@@ -3,7 +3,7 @@ import React from 'react';
 import SectionTopStreamers from 'src/components/Main/SectionTopStreamers';
 import SectionLiveStreamers from 'src/containers/SectionLiveStreamers';
 import SectionCatStreamers from 'src/containers/SectionCatStreamers';
-// import SectionChannelStreams from 'src/containers/SectionChannelStreams';
+import SectionChannelStreams from 'src/containers/SectionChannelStreams';
 
 // == Import
 import './main.scss';
@@ -14,7 +14,7 @@ const Main = () => (
     <SectionTopStreamers />
     <SectionLiveStreamers />
     <SectionCatStreamers />
-    {/* <SectionChannelStreams /> */}
+    <SectionChannelStreams />
   </div>
 );
 

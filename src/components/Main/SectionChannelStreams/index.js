@@ -1,6 +1,5 @@
 // == Import npm
 import React from 'react';
-import CategoryStream from 'src/components/Main/SectionCatStreamers/CategoryStream';
 // == Import
 import './sectionChannelStreams.scss';
 

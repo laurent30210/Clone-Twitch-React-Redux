@@ -1,4 +1,6 @@
 // eslint-disable-next-line import/prefer-default-export
+
+// function that is used to modify languages coming from the api
 export function changeTypeTextLanguage(language) {
   switch (language) {
     case 'fr':
@@ -17,11 +19,14 @@ export function changeTypeTextLanguage(language) {
       return 'Chinois';
     case 'ko':
       return 'Coréen';
+    case 'pt':
+      return 'Portugais';
     default:
       return language;
   }
 }
 
+// fucntion for transform the visual of the number of viewers
 export function changeTypeNumberOfViewers(number) {
-  return Math.abs(number) > 999 ? `${Math.sign(number) * ((Math.abs(number) / 1000).toFixed(1))}k` : Math.sign(number) * Math.abs(number);
+  return Math.abs(number) > 999 ? `${Math.sign(number) * ((Math.abs(number) / 1000).toFixed(1))}k` : number;
 }
