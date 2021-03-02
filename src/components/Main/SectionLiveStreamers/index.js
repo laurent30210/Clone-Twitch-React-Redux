@@ -9,7 +9,8 @@ const SectionLiveStreamers = ({ liveStreamsList }) => (
   <section className="section sectionLiveStreamers">
     <h2 className="sectionLiveStreamers__title">chaines live qui pourraient vous plaire</h2>
     <ul className="sectionLiveStreamers__list">
-      {liveStreamsList && liveStreamsList.map((liveStream) => (
+      {liveStreamsList && liveStreamsList.map((liveStream, index) => (
+        (index < 4 && (
         <ChannelStream
           key={liveStream.id}
           id={liveStream.id}
@@ -22,8 +23,8 @@ const SectionLiveStreamers = ({ liveStreamsList }) => (
           language={liveStream.language}
           image={liveStream.thumbnail_url}
           type={liveStream.type}
-
         />
+        ))
       ))}
     </ul>
 

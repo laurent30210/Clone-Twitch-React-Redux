@@ -1,6 +1,6 @@
 // == Import npm
 import React from 'react';
-import SectionTopStreamers from 'src/components/Main/SectionTopStreamers';
+import SectionTopStreamers from 'src/containers/SectionTopStreamers';
 import SectionLiveStreamers from 'src/containers/SectionLiveStreamers';
 import SectionCatStreamers from 'src/containers/SectionCatStreamers';
 import SectionChannelStreams from 'src/containers/SectionChannelStreams';

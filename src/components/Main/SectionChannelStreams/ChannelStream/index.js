@@ -14,13 +14,12 @@ const ChannelStream = ({
   return (
     <li className="channelStream" id={id}>
       <header className="channelStream__header">
-        <div className="cornerLeft" />
-        <div className="cornerTop" />
-        <div className="cornerRight" />
+        <div className="backgroundImg" />
         <Link
           to={{
             pathname: `/live/${loginName}`,
           }}
+          className="channelStream__link"
         >
           <img
             src={image}
@@ -30,6 +29,8 @@ const ChannelStream = ({
         </Link>
         <span className="channelStream__viewers">{`${changeTypeNumberOfViewers(viewer)} spectateurs`}</span>
         <span className="channelStream__live">{type}</span>
+        <div className="cornerTop" />
+        <div className="cornerRight" />
       </header>
       <section className="channelStream__containerUser">
         <img

@@ -100,7 +100,6 @@ const api = (store) => (next) => (action) => {
             store.dispatch(getChannelFromAPI(item.name));
             return item;
           });
-
           store.dispatch(getCategoryFromAPISuccess(newDatas));
         })
         .catch((error) => {

@@ -61,27 +61,28 @@
   &__img, &__viewers, &__live {
     transition: all .2s ease-in;    
   }
-  &__img {
-    &:hover {
-    transform: translate(.4rem, -.4rem);   
-      &.channelStream__live {
-        top: 4%;
-        left: 4%;
-      }
-      &.channelStream__viewers {
-        bottom: 4%;
-        left: 2%;
-      }
+  &__link:hover {
+    .channelStream__img, ~.channelStream__live, ~.channelStream__viewers {
+    transform: translate(.4rem, -.4rem);      
+    }    
+    ~.cornerRight {
+      right: -7px;  
+    }
+    ~.cornerTop {
+      top: -7px;
     }
   }
 }
 
-.cornerLeft {
+.backgroundImg {
   position: absolute;
   width: 100%;
   height: 98%;
-  background-color: purple;
+  background-color: #800080;
   z-index: -1;
+}
+.cornerRight, .cornerTop {
+  transition: all 50ms ease-in;
 }
 .cornerRight {
   position: absolute;
@@ -89,13 +90,13 @@
   border-right: .4rem solid transparent;
   border-top: .4rem solid purple;
   bottom: 4px;
-  right: -7px;
+  right: 0;
   z-index: -1;
 
 }
 .cornerTop {
 position: absolute;
-top: -7px;
+top: 0;
 left: 1px;
 width: 0px;
 height: 0px;
@@ -103,5 +104,4 @@ border-top: 0.4rem solid transparent;
 border-bottom: 0.4rem solid transparent;
 border-right: 0.4rem solid purple;
 z-index: -1;
-
 }
