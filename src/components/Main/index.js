@@ -4,10 +4,8 @@ import SectionTopStreamers from 'src/containers/SectionTopStreamers';
 import SectionLiveStreamers from 'src/containers/SectionLiveStreamers';
 import SectionCatStreamers from 'src/containers/SectionCatStreamers';
 import SectionChannelStreams from 'src/containers/SectionChannelStreams';
-
 // == Import
 import './main.scss';
-
 // == Composant
 const Main = () => (
   <div className="main">

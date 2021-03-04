@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import Header from 'src/components/Header';
 import Sidebar from 'src/containers/Sidebar';
-import Main from 'src/components/Main';
+import Main from 'src/containers/Main';
 import LiveStream from 'src/components/LiveStream';
 // == Import
 import './app.scss';

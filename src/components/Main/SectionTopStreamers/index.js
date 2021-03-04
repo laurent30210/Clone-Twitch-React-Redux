@@ -1,33 +1,32 @@
 // == Import npm
 import React from 'react';
-import SwiperCore, {
-  Navigation, A11y,
-} from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import ChannelStream from 'src/components/Main/SectionLiveStreamers/ChannelStream';
+import SwiperCore, { EffectCoverflow } from 'swiper';
+import LiveStreamMin from 'src/components/LiveStreamMin';
 
 // == Import
 import './sectionTopStreamers.scss';
 import 'swiper/swiper.scss';
+import 'swiper/components/effect-coverflow/effect-coverflow.scss';
 import 'swiper/components/navigation/navigation.scss';
+import 'swiper/components/effect-fade/effect-fade.scss';
 
-SwiperCore.use([Navigation, A11y]);
+SwiperCore.use([EffectCoverflow]);
 // == Composant
 const SectionTopStreamers = ({ streams }) => (
   <div className="section sectionTopStreamers">
+
     <Swiper
-      spaceBetween={20}
-      slidesPerView={1}
-      navigation
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
+      spaceBetween={50}
+      slidesPerView={3}
+      effect="coverflow"
     >
       {streams.map((liveStream) => (
         <SwiperSlide
           key={liveStream.id}
           virtualIndex={liveStream.id}
         >
-          <ChannelStream
+          <LiveStreamMin
             key={liveStream.id}
             id={liveStream.id}
             userName={liveStream.user_name}

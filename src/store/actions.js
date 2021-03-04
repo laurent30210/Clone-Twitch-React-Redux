@@ -6,6 +6,9 @@ export const GET_CATEGORY_FROM_API = 'GET_CATEGORY_FROM_API';
 export const GET_CHANNEL_FROM_API = 'GET_CHANNEL_FROM_API';
 export const GET_CHANNEL_FROM_API_SUCCESS = 'GET_CHANNEL_FROM_API_SUCCESS';
 
+export const LOADER_OFF = 'LOADER_OFF';
+export const LOADER_ON = 'LOADER_ON';
+
 export const getStreamFromAPI = () => ({
   type: GET_STREAM_FROM_API,
 });
@@ -32,4 +35,12 @@ export const getChannelFromAPISuccess = (gameName, channel) => ({
   type: GET_CHANNEL_FROM_API_SUCCESS,
   gameName,
   channel,
+});
+export const loaderOn = (loaderName) => ({
+  type: LOADER_ON,
+  loaderName,
+});
+export const loaderOff = (loaderName) => ({
+  type: LOADER_OFF,
+  loaderName,
 });

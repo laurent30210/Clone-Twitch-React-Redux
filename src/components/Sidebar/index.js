@@ -15,8 +15,8 @@ const Sidebar = ({ liveStreamsList }) => (
 
       </header>
       <ul className="sidebar__listStream">
-        {liveStreamsList && liveStreamsList.map((streamer) => (
-          (streamer.viewer_count > 20000)
+        {liveStreamsList && liveStreamsList.map((streamer, index) => (
+          (index < 7)
            && (
            <Streamer
              key={streamer.id}

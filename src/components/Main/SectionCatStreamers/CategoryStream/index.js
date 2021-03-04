@@ -9,7 +9,7 @@ const CategoryStream = ({
 }) => (
   <li className="categoryStream" id={id}>
     <header className="categoryStream__header">
-      <div className="cornerLeft" />
+      <div className="backgroundImg" />
 
       <img
         src={boxArtUrl}
@@ -17,6 +17,8 @@ const CategoryStream = ({
         className="categoryStream__img"
       />
     </header>
+    <div className="cornerTop" />
+    <div className="cornerRight" />
     <section className="categoryStream__containerUser">
       <div className="categoryStream__containerUser__content">
         <h2 className="categoryStream__containerUser__content__title">{name}</h2>
@@ -26,6 +28,5 @@ const CategoryStream = ({
     </section>
   </li>
 );
-
 // == Export
 export default CategoryStream;

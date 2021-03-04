@@ -10,6 +10,8 @@ import {
   getChannelFromAPI,
   GET_CHANNEL_FROM_API,
   getChannelFromAPISuccess,
+  loaderOn,
+  loaderOff,
 } from 'src/store/actions';
 
 // Client_ID = 3672qpowsak0jc3gz1w7g3ltttf7o8
@@ -29,6 +31,7 @@ const api = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_STREAM_FROM_API:
       // first
+      store.dispatch(loaderOn('loaderTop'));
       apiTwitch.get('https://api.twitch.tv/helix/streams')
         .then((response) => {
         // console.log(response.data);
@@ -83,9 +86,14 @@ const api = (store) => (next) => (action) => {
             const { status, statusText } = error.response;
             store.dispatch(getDataFromAPIError(`erreur ${status}, message ${statusText}`));
           }
+        })
+        .finally(() => {
+          store.dispatch(loaderOff('loaderTop'));
         });
       break;
     case GET_CATEGORY_FROM_API:
+      store.dispatch(loaderOn('loaderCat'));
+
       apiTwitch.get('https://api.twitch.tv/helix/games/top')
         .then((response) => {
           const { data } = response.data;
@@ -108,6 +116,9 @@ const api = (store) => (next) => (action) => {
             const { status, statusText } = error.response;
             store.dispatch(getDataFromAPIError(`erreur ${status}, message ${statusText}`));
           }
+        })
+        .finally(() => {
+          store.dispatch(loaderOff('loaderCat'));
         });
       break;
     case GET_CHANNEL_FROM_API: {
