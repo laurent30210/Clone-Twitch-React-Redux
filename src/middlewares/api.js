@@ -12,6 +12,7 @@ import {
   getChannelFromAPISuccess,
   loaderOn,
   loaderOff,
+  sendViewersByChannel,
 } from 'src/store/actions';
 
 // Client_ID = 3672qpowsak0jc3gz1w7g3ltttf7o8
@@ -127,10 +128,13 @@ const api = (store) => (next) => (action) => {
         .then((response) => {
           // console.log(action.channelID, response);
           const { streams } = response.data;
+          const viewers = streams.reduce((acc, value) => acc + value.viewers, 0);
           store.dispatch(getChannelFromAPISuccess(action.channelID, streams));
+          store.dispatch(sendViewersByChannel(action.channelID, streams, viewers));
         })
         .catch((error) => {
           if (error.response.status) {
+            console.log(error);
             const { status, statusText } = error.response;
             store.dispatch(getDataFromAPIError(`erreur ${status}, message ${statusText}`));
           }

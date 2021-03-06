@@ -4,6 +4,7 @@
   height: 250px;
   box-shadow: 5px 2px 10px rgb(134, 134, 134);
   margin: .5rem;
+  cursor: pointer;
   &__header {
     position: relative;
     height: 100%;
@@ -13,14 +14,9 @@
     height: 100%;
     width: 100%;
   }  
-  &__viewers {
-    position: absolute;
-    bottom: 5%;
-    left: 5%;
-    background-color: rgb(54, 54, 54);
-    color: #fff;
+  &__viewers {    
+    color: #000;
     font-size: .9rem;
-    padding: 3px;
   }
   &__live {
     position: absolute;
@@ -36,32 +32,40 @@
   &__containerUser {
     display: flex;
     width: 40%;
-    background-color: rgb(238, 238, 238);
+    background-color: rgb(241, 241, 241);
     padding: 1rem .5rem;
     &__logoUser {
       height: 40px; width: 40px;
       border-radius: 50%;
     }
     &__content {
+      position: relative;
       display: flex;
       flex-direction: column;
       padding: .4rem;
       white-space: nowrap;
       overflow: hidden;
-      &__title {
+      &__userName {
         font-size:.8rem;
+        font-weight: bold;
         overflow: hidden;
         text-overflow: ellipsis;
       }
+      &__gamePlayed {
+        font-size: .7rem;
+        padding: .5rem 0;
+      }
       &__userName, &__gamePlayed {
-        color: rgb(78, 78, 78);
-        font-size: .8rem;
+        color: #800080;
       }
     }
   }
   &__details {
     padding: .3rem 2.5rem;
     &__icon {
+      position: absolute;    
+      top: 35%; 
+      left: 0;
       padding: .2rem .3rem;
       margin: 0 .2rem;
       background-color: rgba(197, 197, 197, 0.6);

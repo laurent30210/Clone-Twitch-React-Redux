@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // == Import
-import logoTwitch from '../../assets/images/icons/iconTwitch.svg';
+import logoTwitch from '../../assets/images/icons/Twitch_Logo.png';
 import './header.scss';
 
 // == Composant

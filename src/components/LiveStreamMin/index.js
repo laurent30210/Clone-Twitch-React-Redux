@@ -41,7 +41,6 @@ const LiveStreamMin = ({
             pathname: `/live/${loginName}`,
           }}
         >
-          <h2 className="LiveStreamMin__containerUser__content__title">{title}</h2>
           <h3 className="LiveStreamMin__containerUser__content__userName">{userName}</h3>
         </Link>
         <h3 className="LiveStreamMin__containerUser__content__gamePlayed">{gameName}</h3>

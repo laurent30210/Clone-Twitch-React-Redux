@@ -5,7 +5,7 @@ export const GET_CATEGORY_FROM_API_SUCCESS = 'GET_CATEGORY_FROM_API_SUCCESS';
 export const GET_CATEGORY_FROM_API = 'GET_CATEGORY_FROM_API';
 export const GET_CHANNEL_FROM_API = 'GET_CHANNEL_FROM_API';
 export const GET_CHANNEL_FROM_API_SUCCESS = 'GET_CHANNEL_FROM_API_SUCCESS';
-
+export const SEND_VIEWERS_BY_CHANNEL = 'SEND_VIEWERS_BY_CHANNEL';
 export const LOADER_OFF = 'LOADER_OFF';
 export const LOADER_ON = 'LOADER_ON';
 
@@ -35,6 +35,12 @@ export const getChannelFromAPISuccess = (gameName, channel) => ({
   type: GET_CHANNEL_FROM_API_SUCCESS,
   gameName,
   channel,
+});
+export const sendViewersByChannel = (gameName, channel, viewers) => ({
+  type: SEND_VIEWERS_BY_CHANNEL,
+  gameName,
+  channel,
+  viewers,
 });
 export const loaderOn = (loaderName) => ({
   type: LOADER_ON,

@@ -9,16 +9,14 @@ import { findNameForThisChannel } from 'src/utils';
 // == Composant
 const SectionChannelStreams = ({ streams }) => (
   <section className="section sectionChannelContainer">
-
     {streams.length > 17 && streams.map((channel) => (
       <div
         className={`section sectionChannelStreams sectionChannelStreams--${Object.keys(channel)}`}
       >
         <h2 className="sectionChannelStreams__title">Chaîne de <span className="sectionChannelStreams__title__firstWord">{findNameForThisChannel(Object.keys(channel))}</span> recommandées</h2>
         <ul className="sectionChannelStreams__list">
-          {Object.keys(channel).map((name) => (
-            channel[name].map((item, index) => (
-              (index < 4 && (
+          {Object.keys(channel).map((name) => channel[name].map((item, index) => (
+            (index < 4 && (
               <ChannelStream
                 key={item.id}
                 id={item.id}
@@ -32,8 +30,8 @@ const SectionChannelStreams = ({ streams }) => (
                 image={item.preview.medium}
                 type={item.broadcast_platform}
               />
-              ))
-            ))))}
+            ))
+          )))}
         </ul>
       </div>
     ))}

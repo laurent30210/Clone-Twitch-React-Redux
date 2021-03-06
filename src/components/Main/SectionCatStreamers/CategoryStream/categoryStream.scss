@@ -51,6 +51,12 @@
     transition: all .2s ease-in;    
     &:hover {
     transform: translate(.3rem, -.3rem);   
+    ~.cornerRight {
+      right: -5px;  
+    }
+    ~.cornerTop {
+      top: -5px;
+    }
   }  
 }
 }

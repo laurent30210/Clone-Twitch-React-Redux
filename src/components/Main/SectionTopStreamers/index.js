@@ -8,8 +8,6 @@ import LiveStreamMin from 'src/components/LiveStreamMin';
 import './sectionTopStreamers.scss';
 import 'swiper/swiper.scss';
 import 'swiper/components/effect-coverflow/effect-coverflow.scss';
-import 'swiper/components/navigation/navigation.scss';
-import 'swiper/components/effect-fade/effect-fade.scss';
 
 SwiperCore.use([EffectCoverflow]);
 // == Composant

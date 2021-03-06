@@ -3,12 +3,14 @@ import {
   GET_DATA_FROM_API_ERROR,
   GET_CATEGORY_FROM_API_SUCCESS,
   GET_CHANNEL_FROM_API_SUCCESS,
+  SEND_VIEWERS_BY_CHANNEL,
 } from 'src/store/actions';
 
 const initialState = {
   liveStreamsList: [],
   catStreamsList: [],
   channelStream: [],
+  viewersByChannel: [],
   errorText: '',
 };
 
@@ -34,7 +36,19 @@ const reducer = (oldState = initialState, action) => {
         ...oldState,
         channelStream: [
           ...oldState.channelStream,
-          { [action.gameName]: action.channel },
+          {
+            [action.gameName]: action.channel,
+          },
+        ],
+      };
+    case SEND_VIEWERS_BY_CHANNEL:
+      return {
+        ...oldState,
+        viewersByChannel: [
+          ...oldState.viewersByChannel,
+          {
+            [action.gameName]: action.viewers,
+          },
         ],
       };
     default:
