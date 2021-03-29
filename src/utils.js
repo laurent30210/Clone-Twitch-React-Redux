@@ -99,6 +99,10 @@ export function changeTypeTextLanguage(language) {
       return 'Mandarin';
     case 'es-mx':
       return 'Espagnol';
+    case 'nl':
+      return 'Pays-Bas';
+    case 'fi':
+      return 'Finnois';
     default:
       return language;
   }

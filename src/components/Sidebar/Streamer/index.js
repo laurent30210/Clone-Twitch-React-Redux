@@ -5,7 +5,12 @@ import { Link } from 'react-router-dom';
 
 // == Composant
 const Streamer = ({
-  userName, gameName, viewers, loginName, userPic,
+  userName,
+  gameName,
+  viewers,
+  loginName,
+  userPic,
+  menuActived,
 }) => (
   <Link
     to={{
@@ -14,11 +19,15 @@ const Streamer = ({
     className="sidebar__streamer"
   >
     <img className="sidebar__streamer__logo" src={userPic} alt={`logo ${loginName}`} />
-    <section className="sidebar__streamer__infos">
-      <h2 className="sidebar__streamer__infos__name">{userName}</h2>
-      <h3 className="sidebar__streamer__infos__gamePlayed">{gameName}</h3>
-    </section>
-    <span className="sidebar__streamer__viewers">{viewers}</span>
+    {!menuActived && (
+    <>
+      <section className="sidebar__streamer__infos">
+        <h2 className="sidebar__streamer__infos__name">{userName}</h2>
+        <h3 className="sidebar__streamer__infos__gamePlayed">{gameName}</h3>
+      </section>
+      <span className="sidebar__streamer__viewers">{viewers}</span>
+    </>
+    )}
   </Link>
 );
 

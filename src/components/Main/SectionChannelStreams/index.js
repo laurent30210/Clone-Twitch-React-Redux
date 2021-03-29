@@ -12,9 +12,21 @@ const SectionChannelStreams = ({ streams }) => (
     {streams.length > 17 && streams.map((channel) => (
       <div
         className={`section sectionChannelStreams sectionChannelStreams--${Object.keys(channel)}`}
+        key={channel.id}
       >
-        <h2 className="sectionChannelStreams__title">Chaîne de <span className="sectionChannelStreams__title__firstWord">{findNameForThisChannel(Object.keys(channel))}</span> recommandées</h2>
-        <ul className="sectionChannelStreams__list">
+        <h2
+          key={channel.id}
+          className="sectionChannelStreams__title"
+        >
+          Chaîne de
+          <span
+            key={channel.id}
+            className="sectionChannelStreams__title__firstWord"
+          >{findNameForThisChannel(Object.keys(channel))}
+          </span>
+          recommandées
+        </h2>
+        <ul key={channel.id} className="sectionChannelStreams__list">
           {Object.keys(channel).map((name) => channel[name].map((item, index) => (
             (index < 4 && (
               <ChannelStream

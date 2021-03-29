@@ -15,7 +15,7 @@ const SectionTopStreamers = ({ streams }) => (
   <div className="section sectionTopStreamers">
 
     <Swiper
-      spaceBetween={50}
+      spaceBetween={40}
       slidesPerView={3}
       effect="coverflow"
     >

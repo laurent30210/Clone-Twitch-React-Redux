@@ -1,12 +1,15 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactTwitchEmbedVideo from 'react-twitch-embed-video';
 import { useParams } from 'react-router-dom';
 // == Import
 import './liveStream.scss';
 
 // == Composant
-const LiveStream = () => {
+const LiveStream = ({ handleResetSearch }) => {
+  useEffect(() => {
+    handleResetSearch();
+  }, []);
   // now, we will use the parameter (slug) and give it to ReactTwitchEmbedVideo
   const { slug } = useParams();
   return (

@@ -15,11 +15,6 @@ import {
   sendViewersByChannel,
 } from 'src/store/actions';
 
-// Client_ID = 3672qpowsak0jc3gz1w7g3ltttf7o8
-// redirect = 'http://127.0.0.1/'
-// URL https://id.twitch.tv/oauth2/authorize?client_id=3672qpowsak0jc3gz1w7g3ltttf7o8&redirect_uri=https://127.0.0.1/&response_type=token
-// TOKEN 4114x35j0lpi82l88oxmj4n0tw4cok
-
 const apiTwitch = axios.create({
   headers: {
     Accept: 'application/vnd.twitchtv.v5+json',
@@ -40,9 +35,11 @@ const api = (store) => (next) => (action) => {
           // here we receive each img's objects without an size witdh, height
           const dataWithNewSize = data.map((item) => {
             // replace {width and height} width an valid size
+            const newSizeWidth = 320;
+            const newSizeHeight = 190;
             const newThumbnailUrl = item.thumbnail_url
-              .replace('{width}', '320')
-              .replace('{height}', '190');
+              .replace('{width}', newSizeWidth)
+              .replace('{height}', newSizeHeight);
             item.thumbnail_url = newThumbnailUrl;
             return item;
           });
@@ -59,14 +56,12 @@ const api = (store) => (next) => (action) => {
           let finalArray = [];
           apiTwitch.get(urlUsers)
             .then((responseUsers) => {
-              // console.log(responseUsers.data.data);
               usersName.push(responseUsers.data.data);
 
               finalArray = dataWithNewSize.map((item) => {
                 item.picUser = '';
                 item.login = '';
                 usersName[0].forEach((user) => {
-                  // console.log(user);
                   if (item.user_id === user.id) {
                     item.picUser = user.profile_image_url;
                     item.login = user.login;
@@ -79,10 +74,8 @@ const api = (store) => (next) => (action) => {
             .catch((error) => {
               console.error(error);
             });
-          // console.log('userName :', usersName);
         })
         .catch((error) => {
-          // console.log('error ', error);
           if (error.response.status) {
             const { status, statusText } = error.response;
             store.dispatch(getDataFromAPIError(`erreur ${status}, message ${statusText}`));
@@ -101,9 +94,11 @@ const api = (store) => (next) => (action) => {
           // here we receive each img's objects without an size witdh, height
           const newDatas = data.map((item) => {
             // replace {width and height} width an valid size
+            const newSizeWidth = 153;
+            const newSizeHeight = 204;
             const newBoxArtUrl = item.box_art_url
-              .replace('{width}', '153')
-              .replace('{height}', '204');
+              .replace('{width}', newSizeWidth)
+              .replace('{height}', newSizeHeight);
             item.box_art_url = newBoxArtUrl;
 
             store.dispatch(getChannelFromAPI(item.name));

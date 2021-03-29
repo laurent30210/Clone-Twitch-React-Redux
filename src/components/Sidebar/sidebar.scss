@@ -10,6 +10,7 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;  
+  transition: all 0.2s linear;
   // setup first block
   &__containerStreamers {
     width: 100%;
@@ -23,6 +24,7 @@
 
   }
   &__title > i {
+    cursor: pointer;
     float: right;
   }
   &__listStream {
@@ -76,6 +78,7 @@
     }   
   }
   &__searchFriends {
+    position: relative;
     width: 100%;
     text-align: center;
     &__input {
@@ -97,5 +100,30 @@
         border: 2px solid #6441a4;
       }
     }
+  }
+  &__values {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 0 5px 5px 0;
+  }
+  &__value {
+    padding: .3rem;
+    margin: .3rem;
+    
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .sidebar {
+    width: auto;
+  }    
+  .sidebar__searchFriends__input, .sidebar__streamer__infos, .sidebar__streamer__viewers {
+    display: none;
+  }
+  .sidebar__title > i{
+    float: none;
   }
 }

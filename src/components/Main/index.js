@@ -7,8 +7,11 @@ import SectionChannelStreams from 'src/containers/SectionChannelStreams';
 // == Import
 import './main.scss';
 // == Composant
-const Main = () => (
-  <div className="main">
+const Main = ({ menuActived }) => (
+  <div
+    className="main"
+    style={{ padding: menuActived && '50px 0 0 50px' }}
+  >
     <SectionTopStreamers />
     <SectionLiveStreamers />
     <SectionCatStreamers />

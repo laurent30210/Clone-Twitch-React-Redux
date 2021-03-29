@@ -2,10 +2,10 @@
 import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Header from 'src/components/Header';
+import Header from 'src/containers/Header';
 import Sidebar from 'src/containers/Sidebar';
 import Main from 'src/containers/Main';
-import LiveStream from 'src/components/LiveStream';
+import LiveStream from 'src/containers/LiveStream';
 // == Import
 import './app.scss';
 

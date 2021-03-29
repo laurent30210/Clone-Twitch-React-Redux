@@ -6,6 +6,7 @@ const mapStateToProps = (state) => ({
   loaderTop: state.globalReducer.loaderTop,
   loaderCat: state.globalReducer.loaderCat,
   loaderChannel: state.globalReducer.loadeloaderChannelr,
+  menuActived: state.globalReducer.menuActived,
 });
 
 export default connect(mapStateToProps)(Main);
