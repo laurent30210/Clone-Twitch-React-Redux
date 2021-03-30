@@ -20,8 +20,8 @@ const Sidebar = ({
 
   useEffect(() => {
     const filter = (value) => {
-      const newList = liveStreamsList.filter((game) => (
-        game.login_name.toLowerCase().includes(value.toLowerCase())));
+      const newList = liveStreamsList.filter((streamer) => (
+        streamer.user_login.toLowerCase().includes(value)));
       setlistStreamers(newList);
     };
     filter(value2);
@@ -91,7 +91,7 @@ const Sidebar = ({
               }}
               className="channelStream__link"
             >
-              <li className="sidebar__searchFriends__value">{streamer.login_name}</li>
+              <li className="sidebar__searchFriends__value">{streamer.user_login}</li>
             </Link>
           ))}
 
