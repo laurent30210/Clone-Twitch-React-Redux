@@ -21,7 +21,7 @@ const Sidebar = ({
   useEffect(() => {
     const filter = (value) => {
       const newList = liveStreamsList.filter((streamer) => (
-        streamer.user_login.toLowerCase().includes(value)));
+        streamer.user_login.toLowerCase().includes(value.toLowerCase())));
       setlistStreamers(newList);
     };
     filter(value2);
@@ -78,7 +78,9 @@ const Sidebar = ({
           type="text"
           placeholder="Chercher des amis"
           value={value2}
-          onChange={onChangeInput2}
+          onChange={(event) => {
+            onChangeInput2(event.target.value);
+          }}
         />
         <ul
           className="sidebar__searchFriends__values"

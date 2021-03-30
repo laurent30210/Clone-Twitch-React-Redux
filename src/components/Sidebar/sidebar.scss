@@ -100,19 +100,24 @@
         border: 2px solid #6441a4;
       }
     }
-  }
-  &__values {
-    position: absolute;
-    top: 50%;
-    left: 100%;
-    width: 100%;
-    background-color: #fff;
-    border-radius: 0 5px 5px 0;
-  }
-  &__value {
-    padding: .3rem;
-    margin: .3rem;
-    
+    &__values {
+      position: absolute;
+      bottom: 115%;
+      width: 100%;
+      height: auto;
+      max-height: 200px;
+      background-color: #fff;
+      border-radius: 0 5px 5px 0;
+      overflow-y: auto;
+    }
+    &__value {
+      padding: .3rem;
+      margin: .3rem;
+      &:hover {
+        background-color: #ccc;
+      }
+      
+    }
   }
 }
 
