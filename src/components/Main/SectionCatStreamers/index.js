@@ -10,10 +10,15 @@ import './sectionCatStreamers.scss';
 // == Composant
 const SectionCatStreamers = ({ catStreamsList, viewers }) => {
   const getNumber = (name) => {
-    viewers.map((viewer) => {
-      Object.keys(viewer).forEach((key) => (name === key
-        ? changeTypeNumberOfViewers(viewer[key]) : 0));
+    let numb = null;
+    viewers.forEach((viewer) => {
+      Object.keys(viewer).forEach((key) => {
+        if (name === key) {
+          numb = changeTypeNumberOfViewers(viewer[key]);
+        }
+      });
     });
+    return numb;
   };
 
   return (

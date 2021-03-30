@@ -73,7 +73,7 @@ const Header = ({
                 {listStreamers && listStreamers.map((streamer) => (
                   <Link
                     to={{
-                      pathname: '/',
+                      pathname: `live/${streamer.user_login}`,
                     }}
                     className="channelStream__link"
                   >

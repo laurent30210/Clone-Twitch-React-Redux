@@ -22,9 +22,8 @@ const SectionChannelStreams = ({ streams }) => (
           <span
             key={channel.id}
             className="sectionChannelStreams__title__firstWord"
-          >{findNameForThisChannel(Object.keys(channel))}
-          </span>
-          recommandées
+          >{` ${findNameForThisChannel(Object.keys(channel))} `}
+          </span>recommandées
         </h2>
         <ul key={channel.id} className="sectionChannelStreams__list">
           {Object.keys(channel).map((name) => channel[name].map((item, index) => (
