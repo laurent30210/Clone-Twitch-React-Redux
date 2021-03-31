@@ -5,12 +5,12 @@ import ChannelStream from 'src/components/Main/SectionLiveStreamers/ChannelStrea
 import './sectionLiveStreamers.scss';
 
 // == Composant
-const SectionLiveStreamers = ({ liveStreamsList }) => (
+const SectionLiveStreamers = ({ liveStreamsList, nbStream }) => (
   <section className="section sectionLiveStreamers">
     <h2 className="sectionLiveStreamers__title">chaines live qui pourraient vous plaire</h2>
     <ul className="sectionLiveStreamers__list">
       {liveStreamsList && liveStreamsList.map((liveStream, index) => (
-        (index < 4 && (
+        (index < nbStream && (
         <ChannelStream
           key={liveStream.id}
           id={liveStream.id}

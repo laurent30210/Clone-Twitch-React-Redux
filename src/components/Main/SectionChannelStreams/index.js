@@ -7,7 +7,7 @@ import './sectionChannelStreams.scss';
 import { findNameForThisChannel } from 'src/utils';
 
 // == Composant
-const SectionChannelStreams = ({ streams }) => (
+const SectionChannelStreams = ({ streams, nbStream }) => (
   <section className="section sectionChannelContainer">
     {streams.length > 17 && streams.map((channel) => (
       <div
@@ -27,7 +27,7 @@ const SectionChannelStreams = ({ streams }) => (
         </h2>
         <ul key={channel.id} className="sectionChannelStreams__list">
           {Object.keys(channel).map((name) => channel[name].map((item, index) => (
-            (index < 4 && (
+            (index < nbStream && (
               <ChannelStream
                 key={item.id}
                 id={item.id}
