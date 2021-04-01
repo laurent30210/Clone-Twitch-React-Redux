@@ -6,6 +6,7 @@ import Header from 'src/containers/Header';
 import Sidebar from 'src/containers/Sidebar';
 import Main from 'src/containers/Main';
 import LiveStream from 'src/containers/LiveStream';
+import PageByCat from 'src/components/PageByCat';
 // == Import
 import './app.scss';
 
@@ -22,6 +23,7 @@ const App = ({ loadStreams }) => {
       <Switch>
         <Route exact path="/" component={Main} />
         <Route exact path="/live/:slug" component={LiveStream} />
+        <Route exact path="/game/:slug" component={PageByCat} />
       </Switch>
     </div>
   );

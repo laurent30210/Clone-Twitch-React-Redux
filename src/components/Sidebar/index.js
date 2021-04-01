@@ -93,7 +93,14 @@ const Sidebar = ({
               }}
               className="channelStream__link"
             >
-              <li className="sidebar__searchFriends__value">{streamer.user_login}</li>
+              <li className="sidebar__searchFriends__value">
+                <img
+                  src={streamer.picUser}
+                  alt={`stream ${streamer.user_name} in progress`}
+                  className="streamer__img"
+                />
+                {streamer.user_login}
+              </li>
             </Link>
           ))}
 

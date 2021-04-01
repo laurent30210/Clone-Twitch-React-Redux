@@ -111,10 +111,14 @@
       overflow-y: auto;
     }
     &__value {
+      display: flex;
+      align-items: center;
       padding: .3rem;
       margin: .3rem;
       &:hover {
         background-color: #ccc;
+        color: #6441a4;
+
       }
       
     }

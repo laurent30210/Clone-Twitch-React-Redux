@@ -27,7 +27,7 @@
   &__containerUser {
     display: flex;
     &__logoUser {
-      height: 40px; width: 40px;
+      height: 40px !important; width: 40px !important;
       border-radius: 50%;
     }
     &__content {

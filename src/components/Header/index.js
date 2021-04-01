@@ -77,7 +77,14 @@ const Header = ({
                     }}
                     className="channelStream__link"
                   >
-                    <li className="header__nav__value">{streamer.user_login}</li>
+                    <li className="header__nav__value">
+                      <img
+                        src={streamer.picUser}
+                        alt={`stream ${streamer.user_name} in progress`}
+                        className="streamer__img"
+                      />
+                      {streamer.user_login}
+                    </li>
                   </Link>
                 ))}
 

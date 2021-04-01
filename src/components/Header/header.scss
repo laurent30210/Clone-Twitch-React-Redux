@@ -100,11 +100,21 @@
       border-radius: 0 5px 5px 0;
     }
     &__value {
+      display: flex;
+      align-items: center;
       padding: .3rem;
       margin: .3rem;
-      
+      &:hover {
+        background-color: #ccc;
+        color: #6441a4;
+      }
     }
   }
+}
+.streamer__img {
+  height: 30px !important; width: 30px !important;
+  border-radius: 50%;
+  margin-right: .5em;
 }
 
 @media screen and (max-width: 1100px) {
