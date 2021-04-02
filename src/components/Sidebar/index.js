@@ -12,8 +12,8 @@ const Sidebar = ({
   liveStreamsList,
   handleMenuActived,
   menuActived,
-  value2,
-  onChangeInput2,
+  value,
+  onChangeInput,
 }) => {
   const [size, setSize] = useState([0, 0]);
   const [listStreamers, setlistStreamers] = useState('');
@@ -24,8 +24,8 @@ const Sidebar = ({
         streamer.user_login.toLowerCase().includes(value.toLowerCase())));
       setlistStreamers(newList);
     };
-    filter(value2);
-  }, [value2]);
+    filter(value);
+  }, [value]);
 
   useEffect(() => {
     function updateSize() {
@@ -77,14 +77,15 @@ const Sidebar = ({
           className="sidebar__searchFriends__input"
           type="text"
           placeholder="Chercher des amis"
-          value={value2}
+          name="sidebarValue"
+          value={value}
           onChange={(event) => {
-            onChangeInput2(event.target.value);
+            onChangeInput(event.target.value, event.target.name);
           }}
         />
         <ul
           className="sidebar__searchFriends__values"
-          style={{ visibility: !value2 ? 'hidden' : 'visible' }}
+          style={{ visibility: !value ? 'hidden' : 'visible' }}
         >
           {listStreamers && listStreamers.map((streamer) => (
             <Link

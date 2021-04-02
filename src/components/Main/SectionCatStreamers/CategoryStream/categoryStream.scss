@@ -1,6 +1,9 @@
 .categoryStream {
   width: 153px;
   margin: .5rem;
+  opacity: 0;
+  animation: opacity .3s ease-in;
+  animation-fill-mode: forwards;
   &__header {
     position: relative;
   }
@@ -59,4 +62,12 @@
     }
   }  
 }
+}
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

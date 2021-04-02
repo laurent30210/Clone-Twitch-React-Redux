@@ -8,7 +8,7 @@ import {
 import './sectionCatStreamers.scss';
 
 // == Composant
-const SectionCatStreamers = ({ catStreamsList, viewers }) => {
+const SectionCatStreamers = ({ catStreamsList, viewers, nbCat }) => {
   const getNumber = (name) => {
     let numb = null;
     viewers.forEach((viewer) => {
@@ -25,7 +25,7 @@ const SectionCatStreamers = ({ catStreamsList, viewers }) => {
     <section className="section sectionCatStreamers">
       <h2 className="sectionCatStreamers__title"><span className="sectionCatStreamers__title__firstWord">catégories</span> qui pourraient vous plaire</h2>
       <ul className="sectionCatStreamers__list">
-        {catStreamsList != null && catStreamsList.map((catStream, index) => (index <= 7 && (
+        {catStreamsList != null && catStreamsList.map((catStream, index) => (index <= nbCat && (
         <CategoryStream
           key={catStream.id}
           id={catStream.id}

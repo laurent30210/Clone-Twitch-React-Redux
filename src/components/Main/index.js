@@ -12,6 +12,7 @@ const Main = ({ menuActived }) => {
 
   const [widthWindow, setWidthWindow] = useState(getWidthWindows());
   const [nbStream, setNbStream] = useState(0);
+  const [nbCat, setNbCat] = useState(0);
 
   useEffect(() => {
     function handleResize() {
@@ -24,12 +25,15 @@ const Main = ({ menuActived }) => {
   useEffect(() => {
     const width = widthWindow;
     const WIDTHSTREAM = 316;
+    const WIDTHCAT = 163;
     const PADDINGMENUON = 60;
     const PADDINGMENUOFF = 260;
     const WIDTHWINDOW = width - (menuActived ? PADDINGMENUON : PADDINGMENUOFF);
     const NBSTREAM = Math.round(WIDTHWINDOW / WIDTHSTREAM);
+    const NBCAT = Math.round(WIDTHWINDOW / WIDTHCAT);
     setNbStream(NBSTREAM);
-  }, [widthWindow, nbStream]);
+    setNbCat(NBCAT);
+  }, [widthWindow, nbStream, nbCat]);
 
   return (
     <div
@@ -38,7 +42,7 @@ const Main = ({ menuActived }) => {
     >
       <SectionTopStreamers />
       <SectionLiveStreamers nbStream={nbStream} />
-      <SectionCatStreamers />
+      <SectionCatStreamers nbCat={nbCat} />
       <SectionChannelStreams nbStream={nbStream} />
     </div>
   );

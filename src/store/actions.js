@@ -8,7 +8,6 @@ export const GET_CHANNEL_FROM_API_SUCCESS = 'GET_CHANNEL_FROM_API_SUCCESS';
 export const SEND_VIEWERS_BY_CHANNEL = 'SEND_VIEWERS_BY_CHANNEL';
 export const OPEN_MENU_ACTIVED = 'OPEN_MENU_ACTIVED';
 export const CHANGE_VALUE = 'CHANGE_VALUE';
-export const CHANGE_VALUE2 = 'CHANGE_VALUE2';
 export const RESET_SEARCH = 'RESET_SEARCH';
 export const SUBMIT_VALUE = 'SUBMIT_VALUE';
 export const LOADER_OFF = 'LOADER_OFF';
@@ -50,13 +49,10 @@ export const sendViewersByChannel = (gameName, channel, viewers) => ({
 export const openMenuActived = () => ({
   type: OPEN_MENU_ACTIVED,
 });
-export const changeValue = (value) => ({
+export const changeValue = (value, name) => ({
   type: CHANGE_VALUE,
   value,
-});
-export const changeValue2 = (value) => ({
-  type: CHANGE_VALUE2,
-  value,
+  name,
 });
 export const resetSearch = () => ({
   type: RESET_SEARCH,

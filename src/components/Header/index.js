@@ -55,9 +55,10 @@ const Header = ({
                 className="header__nav__item__inputSearch"
                 placeholder="Rechercher"
                 type="text"
+                name="headerValue"
                 value={value}
                 onChange={(event) => {
-                  onChangeInput(event.target.value);
+                  onChangeInput(event.target.value, event.target.name);
                 }}
               />
               <button

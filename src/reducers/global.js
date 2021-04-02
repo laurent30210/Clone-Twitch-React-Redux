@@ -8,8 +8,8 @@ import {
 } from 'src/store/actions';
 
 const initialState = {
-  value: '',
-  value2: '',
+  headerValue: '',
+  sidebarValue: '',
   loader: false,
   loaderLive: false,
   loaderCat: false,
@@ -27,12 +27,7 @@ const reducer = (oldState = initialState, action) => {
     case CHANGE_VALUE:
       return {
         ...oldState,
-        value: action.value,
-      };
-    case CHANGE_VALUE2:
-      return {
-        ...oldState,
-        value2: action.value,
+        [action.name]: action.value,
       };
     case RESET_SEARCH:
       return {
